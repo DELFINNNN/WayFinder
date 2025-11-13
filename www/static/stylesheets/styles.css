@@ -1,0 +1,610 @@
+/* Общие стили для страницы */
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #000;
+    color: #ddd;
+}
+
+h1,h2,h3,h4,h5,h6{
+    margin: 0;
+}
+/* Стили для хедера */
+.main_header {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    margin-bottom: 0;
+}
+
+/* Навигация */
+nav {
+    position: absolute;
+    top: 0;
+    width: 1495px;
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.6);
+    transition: background 0.3s ease; /* Плавный переход для фона */
+}
+
+.logo{
+    font-size: 20px;
+    font-weight: 700;
+    margin-left: 100px;
+    margin-right: 780px;
+}
+nav.scrolled {
+    background: rgba(0, 0, 0, 0.9); /* Темный фон, когда страница прокручена */
+}
+
+/* Стили для элементов навигации */
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+    margin: 0;
+    margin-right: 20px;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s ease; /* Плавный переход для цвета */
+}
+
+nav ul li a:hover {
+    color: #007BFF; /* Подсветка при наведении */
+}
+
+/* Главная секция (Hero) */
+.hero {
+    background: url('/static/images/hero.webp') no-repeat center center/cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+    color: white;
+}
+
+.hero .overlay {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.hero h1 {
+    font-size: 65px;
+    font-weight: 800;
+}
+
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    color: white;
+    background: #007BFF;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+/*SECTION TOURS*/
+.tours{
+    padding-top: 25px;
+}
+.tours_title{
+    margin-bottom: 10px;
+    text-align: center;
+    color:#fff;
+    font-size: 50px;
+}
+.tours_desc{
+    text-align: center;
+    margin-bottom: 20px;
+}
+.tours_btn_container{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+    row-gap: 40px;
+    padding: 20px;
+    justify-content: center; /* Центрирование карточек */
+}
+
+/* TOURS CARDS */
+.card {
+    flex: 1 1 250px; /* Карточки будут иметь минимальную ширину 250px и могут растягиваться */
+    max-width: 320px; /* Максимальная ширина карточки */
+    max-height: 380px; /* Фиксированная высота для всех карточек */
+    text-align: center;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: relative; /* Для позиционирования текста */
+    opacity: 0; /* Изначально карточки невидимы */
+    transform: translateY(20px); /* Сдвиг вниз для анимации */
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.card.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.card p {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    font-size: 18px;
+    color: white;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    margin: 0;
+    padding: 15px 10px;
+    background: rgba(10, 10, 10, 0.59);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(11.1px);
+    -webkit-backdrop-filter: blur(11.1px); /* Фон для текста, чтобы его было видно на изображении */
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Чтобы изображение заполнило карточку без искажения */
+    border-radius: 12px;
+}
+
+.card:hover {
+    transform: scale(1.05); /* Увеличение карточки */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3); /* Увеличение тени */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Плавный переход для анимации */
+}
+
+/* Стили для информационной секции */
+#info{
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+.info {
+    padding: 110px 0 100px 0;
+    display: flex;
+    justify-content: space-around;
+    
+    background: #000;
+    color: #ddd;
+}
+#info2{
+    margin-top: 30px;
+    margin-bottom: 6px;
+}
+.info2{
+    padding: 110px 0 100px 0;
+    display: flex;
+    justify-content: space-around;
+    
+    background: #000;
+    color: #ddd;
+}
+.info_title{
+    margin-top: 30px;
+    font-size: 40px;
+}
+.info_desc{
+    font-size: 20px;
+}
+
+/*SECTION ABOUT*/
+.about_img{
+    height: 525px;
+    width: 350px;
+    border-radius: 25px;
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+.about_img:hover{
+    transform: scale(1.05); 
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
+}
+
+.about{
+    padding: 110px 0 100px 0;
+    display: flex;
+    justify-content: space-around;
+}
+.about_title{
+    color: #007BFF;
+}
+.about_text{
+    margin-top: 90px;
+}
+
+.about_subtitle{
+    margin-top: 30px;
+    font-size: 40px;
+}
+
+.about_desc {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.toggle-text {
+    cursor: pointer;
+    background-color: #000;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.toggle-text:hover {
+    color: #007BFF;
+    background-color: #333;
+}
+
+
+.about_desc.show {
+    display: block;
+    opacity: 1;
+}
+
+.toggle-text.active {
+    background-color: #d0d0d0;
+    color: #007BFF;
+}
+.about_image{
+    margin-right: 
+}
+
+/*CONTACT*/
+.contact_title{
+    color: #007BFF;
+    margin-top: 40px;
+}
+.contacts h3{
+    margin-top: 90px;
+}
+.social{
+    margin-left: -15px;
+}
+.info_subscribe_title{
+    margin-bottom: 20px;
+    font-size: 30px;
+}
+.submit_btn{     
+    height: 30px;
+    border-radius: 8px;
+    color: white;
+    background: #007BFF;
+    text-decoration: none;
+    border-radius: 5px;
+    border-color: #007BFF;
+}
+.column{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+input{
+    width: 300px;
+    height: 25px;
+    border-radius: 5px;
+    background: #ddd;;
+}
+
+/*BOOKING*/
+.column {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.column form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Отступ между label и input парами */
+}
+
+.column form label {
+    display: block; /* Заставьте label занимать всю ширину и переносить input на новую строку */
+    margin-bottom: 5px;
+}
+
+.column form input {
+    width: 300px;
+    height: 25px;
+    border-radius: 5px;
+    background: #ddd;
+}
+
+.column form .submit_btn { /* Уточните селектор для кнопки, если необходимо */
+    margin-top: 15px;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 10px;
+    background: #222;
+    color: #ddd;
+}
+
+
+
+/*DESTS*/
+.destinations{
+    background-size: cover;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+}
+.dests_header {
+    height: 260px;
+    background-color: #000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: white;
+}
+
+.more_tours_text {
+    margin-top: 85px;
+}
+
+.dest_card {
+    margin-bottom: 25px;
+    max-height: 250px;
+    display: flex;
+    flex-direction: row;
+    transition: transform 0.5s ease;
+}
+.dest_card:hover {
+    transform: scale(1.05);
+}
+
+.dest_card img{
+    width: 190px;
+    height: 250px;
+    
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.dest_card_text{
+    width: 350px;
+    padding: 50px 40px;
+}
+
+.dest_card:nth-child(1) .dest_card_text{
+    background: rgba( 49, 65, 61, 0.8 );
+}
+.dest_card:nth-child(2) .dest_card_text{
+    background: rgba( 35, 64, 58, 0.8 );
+}
+.dest_card:nth-child(3) .dest_card_text{
+    background: rgba( 9, 68, 82, 0.8 );
+}
+.dest_card:nth-child(4) .dest_card_text{
+    background: rgba( 65, 45, 38, 0.8 );
+}
+.dest_card:nth-child(5) .dest_card_text{
+    background: rgba( 131, 83, 66, 0.8 );
+}
+.dest_card:nth-child(6) .dest_card_text{
+    background: rgba( 73, 27, 19, 0.8 );
+}
+.dest_card_price{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    background-color: #555;
+    width: 250px;
+    
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;  
+}
+
+.dest_card_price h2{
+    font-size: 35px;
+    margin-top: 55px;
+}
+.dest_card_price p{
+    margin-top: 5px;
+    font-size: 15px;
+}
+.dest_card_btn{
+    margin-top: 18px;
+    padding: 10px 20px;
+    
+    border-radius: 12px;
+    text-decoration: none;
+    color: #fff;
+    box-shadow: 0 0 5px hsla(0, 0%, 0%, 0.25);
+}
+
+.dest_card:nth-child(1) .dest_card_btn{
+    background-color: #31413d;
+}
+.dest_card:nth-child(2) .dest_card_btn{
+    background-color: #23403A;
+}
+.dest_card:nth-child(3) .dest_card_btn{
+    background-color: #094452;
+}
+.dest_card:nth-child(4) .dest_card_btn{
+    background-color: #412d26;
+}
+.dest_card:nth-child(5) .dest_card_btn{
+    background: rgba( 131, 83, 66, 0.8 );
+}
+.dest_card:nth-child(6) .dest_card_btn{
+    background: rgba( 73, 27, 19, 0.8 );
+}
+
+.dest_card:nth-child(1) .dest_card_price{
+    background-color: #3f5e73;
+}
+.dest_card:nth-child(2) .dest_card_price{
+    background-color: #3f5e73;
+}
+.dest_card:nth-child(3) .dest_card_price{
+    background-color: #3f5e73;
+}
+.dest_card:nth-child(4) .dest_card_price{
+    background-color: #3f5e73;
+}
+.dest_card:nth-child(5) .dest_card_price{
+    background-color: #3f5e73;
+}
+.dest_card:nth-child(6) .dest_card_price{
+    background-color: #3f5e73;
+}
+
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    opacity: 0.7;
+    transition: opacity 0.3s;
+    z-index: 999;
+}
+        
+.back-to-top:hover {
+    opacity: 1;
+}
+        
+.back-to-top::after {
+    content: "↑";
+}
+
+
+
+.auth-buttons {
+    margin-left: 20px;
+    display: flex;
+    gap: 10px; /* Расстояние между кнопками */
+}
+
+.register-btn, .login-btn {
+    background-color: #4CAF50; /* Зеленый цвет */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.register-btn {
+    background-color: #007BFF; /* Синий цвет для register-btn */
+}
+.register-btn:hover {
+    background-color: #02409e; /* Более темный зеленый при наведении */
+}
+.login-btn:hover {
+    background-color: #368040; /* Более темный зеленый при наведении */
+}
+
+
+.auth-form-container-login{
+    margin: 172px auto;
+    width: 300px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.auth-form-container-login h2{
+    margin-bottom: 11px;
+}
+
+.auth-form-container {
+    margin: 150px auto;
+    width: 300px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.auth-form-container h2{
+    margin-bottom: 11px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="text"], input[type="password"], input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Чтобы padding не увеличивал ширину */
+}
+
+.auth-button {
+    background-color: #007BFF;
+    color: white;
+    padding: 8.8px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    text-decoration: none;
+}
+
+.auth-button:hover {
+    background-color: #0056b3;
+}
+
+.auth-form-container a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+.auth-form-container a:hover {
+    text-decoration: underline;
+}
+
+
+
+

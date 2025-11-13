@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<section id="info" class="info">
+    <div class="info_text">
+        <h3 class="contact_title">CONTACT US</h3>
+        <h1 class="info_title">Contact Us for<br>Extraordinary Journeys</h1>
+        <p class="info_desc">For extraordinary journeys and personalized assistance...</p>
+        <div class="contacts">
+            <h3>Find us</h3>
+            <div class="social">
+                <img src="{{ url_for('static', filename='icons/Facebook.svg') }}">
+                <img src="{{ url_for('static', filename='icons/Twitter.svg') }}">
+                <img src="{{ url_for('static', filename='icons/IG.svg') }}">
+                <img src="{{ url_for('static', filename='icons/YT.svg') }}">
+            </div>
+        </div>
+    </div>
+    <div class="column">
+        <h3 class="info_subscribe_title">Get in touch</h3>
+        <form id="contactForm" method="POST">
+            <div class="name_title">First name</div>
+            <input type="text" id="name" name="firstname" placeholder="Your name" required>  <div class="phone_title">Phone</div>
+            <input type="text" id="phone" name="phone" placeholder="Your phone" required>
+            <div class="email_title">Email</div>
+            <input type="email" id="email" name="email" placeholder="Your email" required>
+            <button class="submit_btn" type="submit">Submit</button>
+        </form>
+        <div id="result"></div>
+    </div>
+</section>
+<script src="{{ url_for('static', filename='javascripts/formsend.js') }}"></script>
+{% endblock %}

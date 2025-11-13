@@ -1,0 +1,72 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<section id="info2" class="info2">
+    <div class="info_text">
+        <h3 class="contact_title">BOOK YOUR TOUR</h3>
+        <h1 class="info_title">Secure Your Spot<br>for an Unforgettable Journey</h1>
+        <p class="info_desc">Complete the form below to confirm your booking.</p>
+        <div id="tour-name-display" class="info_subscribe_title">{{ tour_name }}</div>
+        <div id="tour-price-display" class="info_subscribe_title">{{ tour_price }}</div>  </div>
+    <div class="column">
+        <h3 class="info_subscribe_title">Enter Your Details</h3>
+        <form id="booking-form" method="POST">
+            <label for="first-name" class="name_title">First Name</label>
+            <input type="text" id="first-name" name="first-name" placeholder="Your first name" required>
+            <label for="last-name" class="phone_title">Last Name</label>
+            <input type="text" id="last-name" name="last-name" placeholder="Your last name" required>
+            <label for="email" class="email_title">Email</label>
+            <input type="email" id="email" name="email" placeholder="Your email" required>
+            <label for="phone" class="phone_title">Phone</label>
+            <input type="tel" id="phone" name="phone" placeholder="Your phone">
+
+            <input type="hidden" id="tour-name" name="tour_name" value="{{ tour_name }}">
+            <input type="hidden" id="tour-price" name="tour_price" value="{{ tour_price }}">
+
+            <button class="submit_btn" type="submit">Submit</button>
+        </form>
+        <div id="result"></div>
+    </div>
+</section>
+<script src="{{ url_for('static', filename='javascripts/script.js') }}"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const bookingForm = document.getElementById('booking-form');
+        const resultDiv = document.getElementById('result');
+        const tourNameElement = document.getElementById('tour-name');
+        const tourPriceElement = document.getElementById('tour-price');
+
+        if (bookingForm) {
+            bookingForm.addEventListener('submit', function(event) {
+                event.preventDefault();
+
+                const formData = new FormData(bookingForm);
+
+                fetch('/booking', {
+                    method: 'POST',
+                    body: JSON.stringify(Object.fromEntries(formData)),
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.message) {
+                        resultDiv.textContent = data.message;
+                        resultDiv.style.color = 'green';
+                        bookingForm.reset();
+                    } else if (data.error) {
+                        resultDiv.textContent = 'Error: ' + data.error;
+                        resultDiv.style.color = 'red';
+                    }
+                })
+                .catch(error => {
+                    console.error('Error submitting booking form:', error);
+                    resultDiv.textContent = 'An error occurred while booking.';
+                    resultDiv.style.color = 'red';
+                });
+            });
+        }
+    });
+</script>
+{% endblock %}

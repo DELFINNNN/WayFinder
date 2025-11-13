@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="hero">
+    <div class="overlay">
+        <h1>DISCOVER<br>NEW HORIZONS</h1>
+        <p>Explore the world's most breathtaking destinations...</p>
+        <a href="#tours" class="btn">Explore Now</a>
+    </div>
+</div>
+<section id="tours" class="tours">
+    <h2 class="tours_title">Popular Destinations</h2>
+    <p class="tours_desc">Fusce hic augue velit wisi quibusdam...</p>
+    <div class="grid">
+        <div class="card"><img src="{{ url_for('static', filename='images/switzerland.jpg') }}" alt="Sayans"><p>Sayans, Russia</p></div>
+        <div class="card"><img src="{{ url_for('static', filename='images/waterfall.jpg') }}" alt="Milford"><p>Milford, New Zealand</p></div>
+        <div class="card"><img src="{{ url_for('static', filename='images/taroko.jpg') }}" alt="Taroko"><p>Taroko, Taiwan</p></div>
+    </div>
+    <div class="tours_btn_container"><a href="{{ url_for('main.destinations') }}" class="btn">MORE DESTINATIONS</a></div>
+</section>
+<section id="about" class="about">
+    <div class="about_text">
+        <h3 class="about_title">ABOUT US</h3>
+        <h1 class="about_subtitle">Crafting Unforgettable<br>Journeys</h1>
+        <h3 class="toggle-text" onclick="toggleText('about-desc')">Description</h3>
+        <p id="about-desc" class="about_desc">At WayFinder, we weave tales of opulence and affordability...</p>
+    </div>
+    <div class="about_image">
+        <img class="about_img" src="{{ url_for('static', filename='images/journey.jpg') }}">
+    </div>
+</section>
+{% endblock %}

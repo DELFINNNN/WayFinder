@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='stylesheets/styles.css') }}">
+    <title>{{ title }}</title>
+</head>
+<body>
+    <header class="main_header">
+        <nav>
+            <div class="logo" id="logo-text">WayFinder</div>
+            <ul>
+                <li><a href="{{ url_for('main.index') }}">Home</a></li>
+                <li><a href="{{ url_for('main.destinations') }}">Destinations</a></li>
+                <li><a href="{{ url_for('main.contact') }}">Contact</a></li>
+            </ul>
+            <div class="auth-buttons">
+                {% if session.get('user') %}
+                    <div style="display: flex; align-items: center; color: white; margin-right: 10px;">
+                        <span style="margin-right: 5px;">👤</span>
+                        <span>{{ session.get('user') }}</span>
+                    </div>
+
+                    <a href="{{ url_for('main.logout') }}" class="auth-button login-button">Logout</a>
+                {% else %}
+                    <a href="{{ url_for('main.login') }}" class="login-btn">Login</a>
+                    <a href="{{ url_for('main.register') }}" class="register-btn">Register</a>
+                {% endif %}
+            </div>
+        </nav>
+    </header>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+    <footer>
+        <p>&copy; 2025 WayFinder. All rights reserved.</p>
+    </footer>
+    
+    <button class="back-to-top" title="Go to top"></button>
+    
+    <script src="{{ url_for('static', filename='javascripts/script.js') }}"></script>
+</body>
+</html>

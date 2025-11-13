@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<header class="dests_header">
+    <div class="more_tours_text">
+        <p class="tours_page_preheader">POPULAR DESTINATIONS</p>
+        <h1 class="tours_header">CHECKOUT ALL DESTINATIONS</h1>
+        <p class="tours_page_desc">Fusce hic augue velit wisi quibusdam...</p>
+    </div>
+</header>
+<section class="destinations">
+    {% for tour in tours %}
+    <div class="dest_card">
+        <img src="{{ url_for('static', filename='images/' + tour.image) }}" alt="{{ tour.name }}">
+        <div class="dest_card_text">
+            <h3 class="dest_card_header">{{ tour.name }}</h3>
+            <p class="dest_card_desc">{{ tour.description }}</p>
+        </div>
+        <div class="dest_card_price">
+            <h2>{{ tour.price }}</h2>
+            <p>/ per person</p>
+            <a class="dest_card_btn" href="{{ url_for('main.booking', tour=tour.name|replace(' ', '%20'), price=tour.price|replace(' ', '%20')) }}">BOOK NOW</a>
+        </div>
+    </div>
+    {% endfor %}
+</section>
+{% endblock %}
